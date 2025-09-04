@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import ShonppingCart from './components/shoppingCart';
 import NavBar from './components/Navbar';
 import Counter from './components/counter';
-
+import Counters from './components/counters';
+import Timer from './components/timer';
 
 class App extends Component {
     state = { 
@@ -70,6 +71,8 @@ class App extends Component {
                 <NavBar count={this.state.products.filter(p => p.count>0).length}/>
                 <ShonppingCart products={this.state.products} OnDelete={this.DeleteItem} OnAdd={this.AddItem} OnDecrease={this.decreaseItem} Rest={this.Rest}/>
                 <Counter/>
+                <Counters/>
+                <Timer/>
             </React.Fragment>
         );
     }
