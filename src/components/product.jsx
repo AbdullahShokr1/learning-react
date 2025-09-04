@@ -14,6 +14,11 @@ class Product extends Component {
     //     this.setState({count: this.props.product.count+1});
     //     this.setState({count: this.props.product.count+1});
     // };
+
+    ///this when Delete Component
+    // componentWillUnmount(){
+    //     console.log("componentWillUnmount => from Product ==> u deleted product");
+    // }
     render(){
         // console.log(this.props)
         return (
