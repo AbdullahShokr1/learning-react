@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Product from './product';
 import ShonppingCart from './components/shoppingCart';
 import NavBar from './components/Navbar';
+import Counter from './components/counter';
 
 
 class App extends Component {
@@ -68,6 +69,7 @@ class App extends Component {
             <React.Fragment>
                 <NavBar count={this.state.products.filter(p => p.count>0).length}/>
                 <ShonppingCart products={this.state.products} OnDelete={this.DeleteItem} OnAdd={this.AddItem} OnDecrease={this.decreaseItem} Rest={this.Rest}/>
+                <Counter/>
             </React.Fragment>
         );
     }

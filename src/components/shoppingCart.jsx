@@ -2,8 +2,26 @@ import React, { Component } from 'react';
 import Product from './product';
 
 class ShonppingCart extends Component {
+    // constructor(props){
+    //     super(props);
+    //     console.log("Constructor => from Shopping Cart");
+    // }
+
+
+    ///the best to call backend
+    // componentDidMount(){
+    //     console.log("componentDidMount  => from Shopping Cart");
+    // }
+    
+    // componentDidUpdate(prevProps,prevState){
+    //     console.log("componentDidUpdate  => from Shopping Cart");
+    //     console.log(prevProps);
+    //     console.log(prevState);
+    // }
+
     
     render() { 
+        //console.log("render => from Shopping Cart");
         return (
             
             <React.Fragment>
