@@ -7,7 +7,7 @@ const Interval = () => {
             console.log("interval from Interval Ccomponent");
         },1000);
 
-        //clean function
+        // clean function
         return (()=>{
             clearInterval(interval);
         })
