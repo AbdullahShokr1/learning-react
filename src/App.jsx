@@ -1,11 +1,43 @@
 import React, { Component } from 'react';
+import {BrowserRouter ,Routes,Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet} from 'react-router-dom'
 // import Product from './product';
 import ShonppingCart from './components/shoppingCart';
 import NavBar from './components/Navbar';
 import Counter from './components/counter';
 import Counters from './components/counters';
 import Timer from './components/timer';
+import Home from './pages/home';
+import About from './pages/about';
+import Error from './pages/error404';
+import Psot from './pages/post';
+import ProtectedRoute from './components/protectedRoute';
 
+// const user = null;
+const user = {name: 'Abdullah'}
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route path='/' element={<RouteLayout/>}>
+            <Route index element={<Home/>}/>
+            <Route path='about' element={
+                <ProtectedRoute user={user}>
+                    <About/>
+                </ProtectedRoute>
+                
+            }/>
+            <Route path='/post/:id' element={<Psot/>}/>
+            <Route path='*' element={<Error/>}/>
+        </Route>
+    )
+);
+
+function RouteLayout(){
+    return(
+        <>
+            <NavBar />
+            <Outlet/>
+        </>
+    );
+}
 class App extends Component {
     state = { 
         products:[
@@ -65,15 +97,25 @@ class App extends Component {
         //Set state
         this.setState({products});
     } 
+    
     render() { 
         return (
-            <React.Fragment>
-                <NavBar count={this.state.products.filter(p => p.count>0).length}/>
-                <ShonppingCart products={this.state.products} OnDelete={this.DeleteItem} OnAdd={this.AddItem} OnDecrease={this.decreaseItem} Rest={this.Rest}/>
-                <Counter/>
-                <Counters/>
-                <Timer/>
-            </React.Fragment>
+            <RouterProvider router={router}/>
+            // <BrowserRouter>
+            //     <NavBar count={this.state.products.filter(p => p.count>0).length}/>
+            //     <Routes>
+            //         <Route path='/' element={<Home/>}/>
+            //         <Route path='/about' element={<About/>}/>
+            //     </Routes>
+            // </BrowserRouter>
+            // <React.Fragment>
+            //     <RouterProvider router={router}/>
+            //     {/* <NavBar count={this.state.products.filter(p => p.count>0).length}/> */}
+            //     <ShonppingCart products={this.state.products} OnDelete={this.DeleteItem} OnAdd={this.AddItem} OnDecrease={this.decreaseItem} Rest={this.Rest}/>
+            //     <Counter/>
+            //     <Counters/>
+            //     <Timer/>
+            // </React.Fragment>
         );
     }
 }
