@@ -12,6 +12,8 @@ import Error from './pages/error404';
 import Psot from './pages/post';
 import ProtectedRoute from './components/protectedRoute';
 import Lgoin from './components/login';
+import axios from 'axios';
+import Posts from './pages/posts';
 
 // const user = null;
 const user = {name: 'Abdullah'}
@@ -26,6 +28,7 @@ const router = createBrowserRouter(
                 
             }/>
             <Route path='/post/:id' element={<Psot/>}/>
+            <Route path='/posts' element={<Posts/>}/>
             <Route path='/login' element={<Lgoin/>}/>
             <Route path='*' element={<Error/>}/>
         </Route>
@@ -48,6 +51,15 @@ class App extends Component {
             {id:3,name:"cola", count:2},
         ],
     };
+
+    async componentDidMount(){
+
+        const {data} = await axios.get("https://jsonplaceholder.typicode.com/posts");
+        console.log(data);
+    //    const promise =  fetch("https://jsonplaceholder.typicode.com/posts");
+    //    const result = promise.then(response => response.json());
+    //    result.then(data =>console.log(data));
+    }
     DeleteItem = (product) => {
         // //clone & Edit
         // const newProducts = this.state.products.filter(p=> p.id !== product.id)
