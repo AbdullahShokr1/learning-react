@@ -11,6 +11,7 @@ import About from './pages/about';
 import Error from './pages/error404';
 import Psot from './pages/post';
 import ProtectedRoute from './components/protectedRoute';
+import Lgoin from './components/login';
 
 // const user = null;
 const user = {name: 'Abdullah'}
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
                 
             }/>
             <Route path='/post/:id' element={<Psot/>}/>
+            <Route path='/login' element={<Lgoin/>}/>
             <Route path='*' element={<Error/>}/>
         </Route>
     )
