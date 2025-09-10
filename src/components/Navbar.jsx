@@ -14,21 +14,13 @@ const NavBar = props => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                    <NavLink className={({isActive})=>`nav-link ${isActive && 'active'}`} aria-current="page" to="/">Home</NavLink>
+                        <NavLink className={({isActive})=>`nav-link ${isActive && 'active'}`} aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className={({isActive})=>`nav-link ${isActive && 'active'}`} to="/about">About Us</NavLink>
+                        <NavLink className={({isActive})=>`nav-link ${isActive && 'active'}`} to="/about">About Us</NavLink>
                     </li>
-                    <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
-                        <li><span className="dropdown-divider"></span></li>
-                        <li><a className="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <li className="nav-item">
+                        <NavLink className={({isActive})=>`nav-link ${isActive && 'active'}`} to="/login">login</NavLink>
                     </li>
                     <li className="nav-item btn btn-primary position-relative m-2">
                         items
